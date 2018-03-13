@@ -42,3 +42,20 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = '1.10'
 }
+apply plugin: 'maven'
+
+group = 'org.spring4.inaction'
+version = '0.0.1-SNAPSHOT'
+
+task pomify << {
+    pom {
+        project {
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    distribution 'repo'
+                }
+            }
+        }
+    }.writeTo("pom.xml")
+}
